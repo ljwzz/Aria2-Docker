@@ -3,7 +3,7 @@
 ## Build
 
 ```
-docker build -t ljwzz/aria2 .
+sh make.sh
 ```
 
 ## Usage
