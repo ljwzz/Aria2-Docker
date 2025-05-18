@@ -22,14 +22,14 @@ services:
       options:
         max-size: 1m
 
-  AriaNg:
-    container_name: ariang
-    image: ljwzz/ariang:latest
-    network_mode: bridge
-    ports:
-      - "127.0.0.1:6880:80"
-    restart: unless-stopped
-    logging:
-      driver: json-file
-      options:
-        max-size: 1m
+  # AriaNg:
+  #   container_name: ariang
+  #   image: ljwzz/ariang:latest
+  #   network_mode: bridge
+  #   ports:
+  #     - "127.0.0.1:6880:80"
+  #   restart: unless-stopped
+  #   logging:
+  #     driver: json-file
+  #     options:
+  #       max-size: 1m

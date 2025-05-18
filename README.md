@@ -25,4 +25,4 @@ docker run -d \
 
 ## Credits
 
-* [aria2](https://github.com/aria2/aria2)
+- [aria2](https://github.com/aria2/aria2)

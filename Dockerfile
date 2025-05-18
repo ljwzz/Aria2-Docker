@@ -42,16 +42,16 @@ RUN autoreconf -i \
 # 最终镜像
 FROM alpine:latest
 
-# 复制构建好的aria2二进制文件
-COPY --from=builder /usr/bin/aria2c /usr/bin/aria2c
-COPY rootfs /
-
 # 安装运行时依赖 sqlite libsqlite3
 RUN apk add --no-cache libstdc++ openssl zlib c-ares sqlite-libs libssh2 libxml2 gettext \
     su-exec shadow tzdata curl jq \
     && addgroup -g 1000 runner \
     && adduser -D -u 1000 -G runner runner \
     && rm -rf /var/cache/apk/* /tmp/*
+
+# 复制构建好的aria2二进制文件
+COPY --from=builder /usr/bin/aria2c /usr/bin/aria2c
+COPY --chown=runner:runner rootfs /
 
 ENV CUSTOM_TRACKER_URL= \
     PUID= \
