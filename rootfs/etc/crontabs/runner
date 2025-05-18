@@ -1,0 +1,13 @@
+# 指定使用sh shell来执行定时任务
+SHELL=/bin/sh
+
+# 每天7:00执行，添加随机延迟(0-1800秒/30分钟)以避免服务器负载高峰
+0 7 * * * sleep $((RANDOM % 1800))
+
+# 执行tracker更新脚本，并记录日志
+# 使用sh执行/config/script/tracker.sh脚本
+# 参数1: /config/aria2.conf - aria2配置文件路径
+# 参数2: RPC - 指定使用RPC模式
+# 2>&1: 将标准错误重定向到标准输出
+# | tee: 同时输出到终端和日志文件
+sh /config/script/tracker.sh /config/aria2.conf RPC 2>&1 | tee /config/tracker.log

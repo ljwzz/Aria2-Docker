@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  Aria2:
+    container_name: aria2
+    image: ljwzz/aria2
+    environment:
+      - PUID=1000
+      - PGID=100
+      - RPC_SECRET=e2fa8d14e9f08a672b5ced
+    volumes:
+      - ${PWD}/aria2-config:/config
+      - ${PWD}/aria2-downloads:/downloads
+    network_mode: bridge
+    ports:
+      - "127.0.0.1:6800:6800"
+      - 6888:6888
+      - 6888:6888/udp
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+
+  AriaNg:
+    container_name: ariang
+    image: ljwzz/ariang:latest
+    network_mode: bridge
+    ports:
+      - "127.0.0.1:6880:80"
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m

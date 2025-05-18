@@ -1,0 +1,17 @@
+Green_font_prefix="\033[32m"
+Red_font_prefix="\033[31m"
+Green_background_prefix="\033[42;37m"
+Red_background_prefix="\033[41;37m"
+Font_color_suffix="\033[0m"
+
+INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
+ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
+WARN="[${Yellow_font_prefix}WARN${Font_color_suffix}]"
+
+DOWNLOAD_DIR="/downloads"
+ARIA2_CONF_DIR="/config"
+ARIA2_CONF="${ARIA2_CONF_DIR}/aria2.conf"
+SCRIPT_CONF="${ARIA2_CONF_DIR}/script.conf"
+SCRIPT_DIR="${ARIA2_CONF_DIR}/script"
+
+USER_NAME="runner"
